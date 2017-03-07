@@ -1,0 +1,2 @@
+# WarehouseManagementSystem
+这是一个ssh框架的小练习
