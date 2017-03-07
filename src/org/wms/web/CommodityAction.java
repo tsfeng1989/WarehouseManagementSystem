@@ -30,18 +30,24 @@ public class CommodityAction {
 	//添加商品
 	public String addCommodity(){
 		System.out.println("ok?");
-		return "";
+		if(commodityService.addCommodity(c)){
+			return "input";
+		}
+		return "error";
 	}
 	//查询全部信息
 	public String findAllCommodity(){
 		List list = commodityService.findAllCommodity();
-		
 		ActionContext.getContext().put("clist", list);
-		
 		return "list";
 	}
 	
-	
+	//模糊查询
+	public String fuzzyQuery(){
+		List list = commodityService.fuzzyQuery(conditions);
+		ActionContext.getContext().put("clist", list);
+		return "list";
+	}
 	
 	
 	

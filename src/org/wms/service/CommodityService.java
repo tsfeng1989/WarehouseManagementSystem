@@ -27,4 +27,7 @@ public interface CommodityService {
 	
 	//查询全部商品
 	public List findAllCommodity();
+	
+	//模糊查询
+	public List fuzzyQuery(String[] conditions);
 }

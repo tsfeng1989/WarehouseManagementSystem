@@ -54,6 +54,26 @@ public class CommodityServiceImpl implements CommodityService {
 		return CommodityDao.findAllCommodity("from Commodity");
 	}
 	
+	//Ä£ºý²éÑ¯
+	@Override
+	public List fuzzyQuery(String[] conditions) {
+		String hql = "from Commodity c where 1=1";
+		if(conditions[0]!=null && conditions[0].length()>0){
+			hql += " and c.c_name like '%"+conditions[0]+"%'";
+		}
+		if(conditions[1]!=null && conditions[1].length()>0){
+			hql += " and c.c_operator like '%"+conditions[1]+"%'";
+		}
+		if(conditions[2]!=null && conditions[2].length()>0){
+			hql+=" and c.c_quantity >="+conditions[2];
+		}
+		if(conditions[3]!=null && conditions[3].length()>0){
+			hql+=" and c.c_quantity <="+conditions[3];
+		}
+		return CommodityDao.findAllCommodity(hql);
+	}
+	
+	
 	
 	public void setCommodityDao(CommodityDao commodityDao) {
 		CommodityDao = commodityDao;

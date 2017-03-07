@@ -10,7 +10,7 @@
 	<package name="org.wms" extends="struts-default">
 		<action name="commodityAction_*" method="{1}" class="commodityAction">
 			<result name="list">${pageContext.request.contextPath}/pages/showList.jsp</result>
-			<result name="input">/add.jsp</result>
+			<result name="input" type="redirectAction">${pageContext.request.contextPath}/commodityAction_findAllCommodity</result>
 		</action>
 	</package>
 </struts>

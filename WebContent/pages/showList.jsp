@@ -9,7 +9,18 @@
 </head>
 <body>
 	<h2>商品列表</h2>
-	<table width="800" border="1">
+	<!-- 模糊查询 -->
+	<form action="${pageContext.request.contextPath}/commodityAction_fuzzyQuery">
+		商品名称：<input type="text" name="conditions" value="${conditions[0] }"/>&nbsp;&nbsp;
+		操作人：<input type="text" name="conditions" value="${conditions[1] }"/>&nbsp;&nbsp;
+		数量：<input type="text" name="conditions" value="${conditions[2] }"/>—
+		<input type="text" name="conditions" value="${conditions[3] }"/>&nbsp;&nbsp;
+		<input type="submit" value="查找"/><br/><br/>
+	</form>
+	
+	
+	<!-- 商品列表 -->
+	<table width="1000" border="1">
 		<tr>
 			<td>编号</td><td>商品名</td>
 			<td>单位</td><td>数量</td>
@@ -22,7 +33,9 @@
 				<th>${c.c_time}</th><th>${c.c_operator}</th>
 			</tr>
 		</c:forEach>
-		
+		<tr >
+			<td colspan="6" align="center"><a href="${pageContext.request.contextPath}/pages/add.jsp">添加</a></td>
+		</tr>
 	</table>
 </body>
 </html>
